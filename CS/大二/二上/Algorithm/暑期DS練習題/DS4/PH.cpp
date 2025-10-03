@@ -36,9 +36,8 @@ int main() {
             ans = max(ans, treeMulti(l, total_sum, tree));
 
             // 斷開右子樹
-            if(r >= n || tree[r] != -1){
-                ans = max(ans, treeMulti(r, total_sum, tree));
-            }
+            if(r >= n || tree[r] == -1) continue;
+            ans = max(ans, treeMulti(r, total_sum, tree));
             
         }
         
