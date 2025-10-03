@@ -1,0 +1,7 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e531
+
+解題策略:
+1.用陣列來存手指的標號、狀態和按下次數
+2.用10位字串來對應手指的按與不按
+3.用switch來讓不同音調對應成10位字串

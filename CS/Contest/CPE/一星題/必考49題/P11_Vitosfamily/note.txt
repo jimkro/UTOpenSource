@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=a737
+
+解題策略:
+1.找中位數，中位數到其他所有數的距離和最小
+2.zerojudge不會過 Uva可以過

@@ -1,0 +1,19 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c004
+
+解題策略:
+1.運用簡單的二元一次預求解
+2.扣除不合理的解(負數or非整數小數)
+
+/////////////
+
+不失一般性假設X>=Y
+
+X + Y = sum
+
+X - Y = gap
+
+X = (sum+gap)/2
+Y = (sum-gap)/2
+
+/////////////

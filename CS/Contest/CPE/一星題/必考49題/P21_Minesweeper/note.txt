@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e605
+
+解題策略:
+1.用dx dy陣列存八方位(左上、上、右上、左...)
+2.排除超出邊界以及地雷的位置，以免標籤超出範圍

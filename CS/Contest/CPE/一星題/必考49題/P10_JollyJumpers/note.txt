@@ -1,0 +1,8 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d097
+
+解題策略:
+1.用HashSet存兩兩的差
+2.用contains看有沒有1~n-1都有包含到
+
+

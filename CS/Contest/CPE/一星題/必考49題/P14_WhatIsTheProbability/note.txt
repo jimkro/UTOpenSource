@@ -1,0 +1,8 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e510
+
+解題策略:
+1.用無窮等比級數解
+2.用String.format("%.4f", ans)控制取小數點後位數
+
+

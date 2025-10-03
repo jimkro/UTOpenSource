@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c813
+
+解題策略:
+1.記好各資料之間的轉換方式
+2.String不能用==去運算,要用.equals("0")

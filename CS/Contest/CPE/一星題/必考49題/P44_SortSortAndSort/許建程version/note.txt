@@ -1,0 +1,8 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d750
+
+解題策略:
+1.先以不同的mod結果來分類
+2.在把奇偶分開存放，以便達到奇數在前偶數在後
+3.用Collections.sort(odds,Collections.reverseOrder()) 來實現奇數降序
+4.用Collections.sort(evens) 來實現偶數升序

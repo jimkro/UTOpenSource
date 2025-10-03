@@ -1,0 +1,50 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e545
+
+解題策略:
+1.分別寫十進位轉二進位以及十六進位轉二進位
+2.十六進位可以先轉十進位再用寫好的十進位轉二進位即可
+
+優化:
+1.用 Integer.parseInt(str, 16) 把接收的String轉乘16進位的int
+2.用 String str_10_Binary = Integer.toBinaryString(N) 把16進位int再轉成2進位字串
+3.寫個方法計算字串中1的數量
+
+/////////////
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int teams;
+        teams = sc.nextInt();
+        sc.nextLine();
+
+        for (int i = 0; i < teams; i++) {
+            String str = sc.nextLine();
+
+            int N = Integer.parseInt(str, 10);
+            String str_10_Binary = Integer.toBinaryString(N);
+            int b1 = count(str_10_Binary);
+            
+            int N1 = Integer.parseInt(str, 16);
+            String str_16_Binary = Integer.toBinaryString(N1);
+            int b2 = count(str_16_Binary);
+
+            System.out.println(b1 + " " + b2);
+        }
+
+        sc.close();
+    }
+
+    private static int count(String str) {
+        int count = 0;
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i)=='1'){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+/////////////

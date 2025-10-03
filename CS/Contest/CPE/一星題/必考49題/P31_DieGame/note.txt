@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e516
+
+解題策略:
+1.只使用top、north、west三個變數，這樣改資料就不用改那麼多筆，用7-X來找到對側的數字。
+2.要先判斷是否中斷再吸走換行，否則會一直等。

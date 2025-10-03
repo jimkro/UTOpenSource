@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e561
+
+解題策略:
+1.Bubble Sort
+2.

@@ -1,0 +1,7 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=e566
+
+解題策略:
+1.因為n,m為非負整數 故應排除<0之情況 又 等於0或1時亦會造成不合要求 故應排除。 最終n,m<=1
+2.用ArrayList來解決需要除的次數不同的問題
+3.用.get(索引值)方法來個別取得值

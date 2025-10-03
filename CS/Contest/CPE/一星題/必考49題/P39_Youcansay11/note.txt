@@ -1,0 +1,10 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d235
+
+解題策略:
+1.用字串存輸入避免int爆開
+2.用字元-'0'得到字元的數值
+3.主要想法:用sum紀錄然後一加一減讓Int更有機會不爆開
+4.拿sum%11==0判斷是否為11倍數
+
+

@@ -1,0 +1,8 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c044
+
+解題策略:
+1.全轉大寫來處理不分大小寫的問題
+2.用字元的編碼來確認是不是大寫A~Z(也可以用Character.isLetter(字元)來判斷是不是字母)
+3.分兩次排完，第一次先排次數，第二次排相同次數字母的順序
+4.痾好像用HashMap也不錯

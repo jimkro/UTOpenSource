@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c082
+
+解題策略:
+1.用set紀錄掉落時的狀態
+2.Direction要用字元存雖然不知道為啥

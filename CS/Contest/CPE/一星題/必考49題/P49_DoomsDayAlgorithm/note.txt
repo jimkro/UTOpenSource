@@ -1,0 +1,8 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=f709
+
+解題策略:
+1.要注意到 因為1/10是禮拜一 可得1/1日是禮拜六 以第一天為基準
+2.用HashMap存各個月份可以換算到幾天
+3.用天數差%7的不同餘數求星期幾 
+4.可以用switch來簡化if else (做完後要break不然有時候會有問題)

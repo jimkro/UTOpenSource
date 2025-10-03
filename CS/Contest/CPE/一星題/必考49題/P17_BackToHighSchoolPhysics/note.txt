@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d226
+
+解題策略:
+1.初速為0,等加速,t秒 速度=v,2t秒 末速度=2v
+2.啊就2vt

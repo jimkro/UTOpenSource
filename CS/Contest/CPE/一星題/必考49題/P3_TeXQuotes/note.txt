@@ -1,0 +1,10 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c007
+
+解題策略:
+1.用StringBuild來建立輸出
+2.用+1 -1來簡單地檢測第一次遇到"還是第二次遇到"
+3.用字元存 ' " ' 字串存 " ' " 才不會出錯
+
+
+

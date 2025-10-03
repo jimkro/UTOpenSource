@@ -1,0 +1,7 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c045
+
+解題策略:
+1.輸入部分，用ArrayList存多筆輸入，並用while(sc.hasNextLine())來處理。
+2.找出最長的字串，讓所有其他字串補' '來達到對齊的效果。
+3.輸出方法見註記

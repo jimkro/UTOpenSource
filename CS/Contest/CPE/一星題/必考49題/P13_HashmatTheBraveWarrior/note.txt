@@ -1,0 +1,25 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=a012
+
+解題策略:
+1.用BigInteger
+
+/////////////////
+BigInteger常用運算:
+
+a+b a.add(b)
+
+a-b a.subtract(b)
+
+a*b a.multiply(b)
+
+a/b a.divide(b)
+
+a%b a.mod(b)
+
+a的b次方 a.pow(b)
+
+最大公因數 a.gcd(b)
+
+絕對值 a.abs()
+/////////////////

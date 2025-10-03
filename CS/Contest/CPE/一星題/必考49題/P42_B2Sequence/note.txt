@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d123
+
+解題策略:
+1.
+2.用Set來存出現過的bi+bj

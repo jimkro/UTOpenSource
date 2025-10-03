@@ -1,0 +1,7 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=a134
+
+解題策略:
+1.建立費氏數列直到大於N (利用ArrayList)
+2.建立StringBuilder紀錄存入的1和0
+3.

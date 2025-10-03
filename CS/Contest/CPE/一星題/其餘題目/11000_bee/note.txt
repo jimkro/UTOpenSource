@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d261
+
+解題策略:
+1.用兩組DP
+2.其實都寫在註解了

@@ -1,0 +1,7 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c014
+
+解題策略:
+1.用%10取得最右邊的位數，用/10來移除最右邊的位數
+2.把進位帶到下一輪作運算
+3.輸出時記得carry只有1時operation不加s

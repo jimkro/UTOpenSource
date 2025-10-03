@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=d672
+
+解題策略:
+1.注意是否有多加一次深度的問題
+2.其餘應該都在註解上了

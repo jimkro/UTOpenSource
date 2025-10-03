@@ -1,0 +1,7 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=c039
+
+解題策略:
+1.寫一個算cycle length的方法
+2.在主程式中跑各項比較
+3.注意上下限的大小關係以及最後輸出的形式

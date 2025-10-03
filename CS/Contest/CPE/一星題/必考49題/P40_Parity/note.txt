@@ -1,0 +1,6 @@
+原題網址:
+https://zerojudge.tw/ShowProblem?problemid=a132
+
+解題策略:
+1.用Integer.toBinaryString()把N變成二進位字串
+2.字元-'0'來取得值
