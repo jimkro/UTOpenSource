@@ -7,7 +7,7 @@ int main(){
         vector<int> coins(n);
         for(int i=0; i<n; i++) cin >> coins[i];
         
-        // dp[i]: the minimum number of coins to make amount i
+        // dp[i]: 最少的硬幣數量湊出 i 元
         vector<int> dp(target + 1, INT_MAX);
         dp[0] = 0;
         for(int i=1; i<=target; i++){
