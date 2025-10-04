@@ -25,9 +25,9 @@ int main() {
 
         while(!pq.empty()){
             auto [d,u] = pq.top(); pq.pop();
-            if(d > dist[u]) continue; // 
+            if(d > dist[u]) continue; // 已經找到過更短的路徑了
             for(auto [v,w] : graph[u]){
-                if(dist[v] > dist[u] + w){
+                if(dist[v] > dist[u] + w){ // 找到更短的路徑
                     dist[v] = dist[u] + w;
                     pq.push({dist[v], v});
                 }
