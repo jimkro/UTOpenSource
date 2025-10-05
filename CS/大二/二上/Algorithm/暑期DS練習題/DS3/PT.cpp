@@ -5,8 +5,8 @@ using namespace std;
 void insert(vector<int>& ori,int r){
     int i = 0;
     int curr = ori[r];
-    for(;i<r && ori[i] > curr;i++);
-    ori.erase(ori.begin()+r);
+    for(;i<r && ori[i] > curr; i++);
+    ori.erase(ori.begin() + r);
     ori.insert(ori.begin() + i,curr);
 }
 
@@ -37,7 +37,7 @@ void bubble_sort(vector<int> ori,const int n){
 }
 
 void selection_sort(vector<int> ori,const int n){
-    cout << "3 \n";
+    cout << "3\n";
     int len = ori.size();
     for(int i=0;i<n;i++){
         int maxIndex = i;
