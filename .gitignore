@@ -1,3 +1,4 @@
 # 忽略 CPH 的插件檔
 .cph
 .vscode
+test.*
