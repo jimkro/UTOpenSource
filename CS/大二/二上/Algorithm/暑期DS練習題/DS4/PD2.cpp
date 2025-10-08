@@ -1,4 +1,4 @@
-// Solve by Kruskal Algorithm
+// Solve by Kruskal Algorithm (Rank by Size Optimization)
 #include <bits/stdc++.h>
 using namespace std;
 
