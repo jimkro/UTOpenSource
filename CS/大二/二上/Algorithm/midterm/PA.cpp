@@ -2,39 +2,23 @@
 using namespace std;
 
 void printAns(vector<int>& v){
-    for(int x : v){
-        cout << x << " ";
-    }
+    for(int x : v) cout << x << " ";
     cout << "\n";
 }
 
 void merge(vector<int>& v,int l, int m, int r){
-    vector<int> tmp;
-    int i = l, j = m + 1;
-    while(i <= m && j <= r){
-        if(v[i] <= v[j]){
-            tmp.push_back(v[i]);
-            i++;
-        }else{
-            tmp.push_back(v[j]);
-            j++;
-        }
-    }
+    // 暫存答案
+    vector<int> tmp(r - l + 1);
+    // idx們
+    int i = l, j = m + 1, t = 0;
 
-    while(i <= m){
-        tmp.push_back(v[i]);
-        i++;
-    }
+    // 小的先放
+    while(i <= m && j <= r) (v[i] <= v[j]) ? (tmp[t++] = v[i++]) : (tmp[t++] = v[j++]);
+    while(i <= m) tmp[t++] = v[i++];
+    while(j <= r) tmp[t++] = v[j++];
 
-    while(j <= r){
-        tmp.push_back(v[j]);
-        j++;
-    }
-    int t = 0;
-    for(int k = l;k<=r;k++){
-        v[k] = tmp[t];
-        t++;
-    }
+    // 複製到原本陣列裡面
+    for(int k = 0; k < tmp.size(); k++) v[l + k] = tmp[k];
 }
 
 void mergeSort(vector<int>& v,int l, int r){
@@ -50,7 +34,7 @@ void mergeSort(vector<int>& v,int l, int r){
 
 
 int main(){
-    // ios::sync_with_stdio(0); cin.tie(0);
+    ios::sync_with_stdio(0); cin.tie(0);
 
     int n;
     while(cin >> n){
