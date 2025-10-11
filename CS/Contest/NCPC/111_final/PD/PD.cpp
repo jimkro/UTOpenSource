@@ -13,14 +13,10 @@ int main(){
         v[0] = 1, v[n+1] = INT_MIN; // v[n+1] 故意設很小讓他可以自己賣，不需要if去判斷特例
 
         // 先算成 y
-        for(int i=1;i<=n;i++){
-            v[i] = (a * v[i-1] + b) % c;
-        }
+        for(int i=1;i<=n;i++) v[i] = (a * v[i-1] + b) % c;
 
         // 再算成 x
-        for(int i=1;i<=n;i++){
-            v[i] = v[i] % d - d / 2;
-        }
+        for(int i=1;i<=n;i++) v[i] = v[i] % d - d / 2;
 
         int l = 0; // 目前這筆 sum 的左界(即買入點)
         int B = 0, S = 0;
