@@ -14,9 +14,9 @@ int main(){
         stocks.push_back(INT_MIN);
         int l = 0;
         long long ans = 0;
-        
+
         for(int r = 1; r <= n; r++){
-            if(stocks[r] <= stocks[r-1]){
+            if(stocks[r] < stocks[r-1]){
                 ans += stocks[r-1] - stocks[l];
                 l = r;
             }
