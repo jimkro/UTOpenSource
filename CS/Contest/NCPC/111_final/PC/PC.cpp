@@ -21,9 +21,11 @@ int main(){
                 l = r;
             }
         }
+
         if(n - 2 >= 0 && stocks[n-1] > stocks[n-2] && n-1 != l){
             ans += stocks[n-1] - stocks[l];
         }
+        
         cout << ans << "\n";
     }
 }
