@@ -23,6 +23,7 @@
 ## To read the "txt" file, we use the code "read.table()"
 
 
+
 ## Recall that, what type of data format we have for this problem set?
 ## By its format, whuch code should we use?
 
