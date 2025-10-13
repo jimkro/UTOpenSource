@@ -6,8 +6,8 @@ struct Info {
     int w;
 };
 
-map<string, Info> mp;
-map<string, vector<int>> dp; // dp[u][0 or 1]
+unordered_map<string, Info> mp;
+unordered_map<string, vector<int>> dp; // dp[u][0 or 1]
 
 int dfs(const string &u, bool take) {
     if (dp[u][take] != -1) return dp[u][take];
