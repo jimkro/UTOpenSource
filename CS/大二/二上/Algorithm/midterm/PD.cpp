@@ -13,20 +13,21 @@ int dfs(const string &u, bool take) {
     if (dp[u][take] != -1) return dp[u][take];
 
     int res = 0;
-    if (take) {
+
+    if(take){
         res = mp[u].w;
-        for (auto &v : mp[u].adj)
-            res += dfs(v, 0);
-    } else {
-        for (auto &v : mp[u].adj)
-            res += max(dfs(v, 0), dfs(v, 1));
+        for (auto &v : mp[u].adj) res += dfs(v, 0);
+            
+    }else{
+        for (auto &v : mp[u].adj) res += max(dfs(v, 0), dfs(v, 1));
     }
+
     return dp[u][take] = res;
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    ios::sync_with_stdio(0); cin.tie(0);
+
 
     int N;
     while (cin >> N) {
@@ -34,7 +35,7 @@ int main() {
 
         mp.clear();
         dp.clear();
-        set<string> st;
+        unordered_set<string> st;
 
         for (int i = 0; i < N; ++i) {
             string name; int w;
