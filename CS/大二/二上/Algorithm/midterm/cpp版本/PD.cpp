@@ -17,7 +17,6 @@ int dfs(const string &u, bool take) {
     if(take){
         res = mp[u].w;
         for (auto &v : mp[u].adj) res += dfs(v, 0);
-            
     }else{
         for (auto &v : mp[u].adj) res += max(dfs(v, 0), dfs(v, 1));
     }
