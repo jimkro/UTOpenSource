@@ -20,10 +20,15 @@ int main() {
         istringstream iss(line);
         vector<int> tree;
         string token;
-        while(iss >> token) tree.push_back(token == "None" ? -1 : stoi(token));
+        ll total_sum = 0;
+        
+        while(iss >> token){
+            if(token != "None" ) total_sum += stoi(token);
+            tree.push_back(token == "None" ? -1 : stoi(token));
+        }
 
         int n = tree.size();
-        ll total_sum = treeSum(0, tree);
+        
         
         ll ans = 0;
         for(int curr=0;curr<n;curr++){
