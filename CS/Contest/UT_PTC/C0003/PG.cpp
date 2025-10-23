@@ -11,7 +11,7 @@ int gcd(int a, int b) {
 }
 
 void find_partitions(int now_sum, int parts_left, int start_num) {
-    // 剪枝 : 如果剩下的數字都選最小的 start_num，總和會超過 S，則可以提前中止
+    // 剪枝 : 如果剩下的數字都選最小的 start_num，總和還是會超過 S，則可以提前中止
     if (now_sum + parts_left * start_num > S_target) return;
 
     // Base Case
@@ -37,7 +37,7 @@ void find_partitions(int now_sum, int parts_left, int start_num) {
         return;
     }
 
-    // 遞迴本體：遍歷當前數字 i 的所有可能性
+    // 遞迴：遍歷當前數字 i 的所有可能性
     // i 的上限：(S - 目前的和) / 剩下數量
     int upper_bound = (S_target - now_sum) / parts_left;
     for (int i = start_num; i <= upper_bound; ++i) {
@@ -52,9 +52,9 @@ void find_partitions(int now_sum, int parts_left, int start_num) {
 
         if (is_coprime) {
             current_solution.push_back(i);
-            // 遞迴尋找下一個數字，下一個數字的起始點是 i
+            // 遞迴往下探索
             find_partitions(now_sum + i, parts_left - 1, i);
-            current_solution.pop_back(); // 回溯 (退回上一步，嘗試其他可能)
+            current_solution.pop_back(); // 回溯
         }
     }
 }
