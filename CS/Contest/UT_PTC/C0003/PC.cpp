@@ -9,10 +9,13 @@ int main() {
     int num = 1;
     while(cin >> n >> m){
         if(n == 0 && m == 0) break;
-        cout << "Twin Towers #" << num++ << "\n";
+        
+        // 輸入
         vector<int> v1(n), v2(m);
         for(int i=0;i<n;i++) cin >> v1[i];
         for(int i=0;i<m;i++) cin >> v2[i];
+        
+        // dp
         vector<vector<int>> dp(n + 1,vector<int>(m + 1));
         for(int i = 1; i <= n; i++){
             for(int j = 1; j <= m; j++){
@@ -23,6 +26,9 @@ int main() {
                 }
             }
         }
+
+        // 輸出
+        cout << "Twin Towers #" << num++ << "\n";
         cout << "Number of Tiles : " << dp[n][m] << "\n\n";
     }
     return 0;
