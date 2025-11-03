@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript電子書範例</title>
+  <style type='text/css'>
+    body
+    {
+      background:black;
+      color:white;
+    }
+    div#all
+    {
+      width:1024px;
+      margin:auto;
+    }
+    img#picture
+    {
+      width:1024px;
+      height:768px;
+      /* 讓大圖片看起來可以點擊 */
+      cursor: pointer; 
+    }
+  div#leftArrow
+  {
+    float:left; 
+    margin-top:70px;
+  }
+  div#rightArrow
+  {
+    float:right;  
+    margin-top:70px;
+  } 
+  div#princess
+  {
+    width:144px;
+    margin:auto;  
+    /* 移除 princess 圖片的 cursor: pointer，避免誤導可點擊 */
+    /* cursor: pointer; */ 
+  }
+  </style>
+
+</head>
+
+<body>
+  <div id="all">
+      <div id="pictureContainer">
+        <img src="image/1.jpg" id="picture"> 
+      </div>
+      <div id="arrows">
+         <div id="leftArrow">
+            <img src="image/leftArrow.png">
+         </div>
+         <div id="rightArrow">
+           <img src="image/rightArrow.png">
+         </div>
+         <div id="princess">
+           <img src="image/princess.png" id="princessImg"> 
+         </div>
+      </div>
+  </div>
+
+  <audio id="myAudio" src="./music/p1.mp3" preload="auto"></audio>
+
+  <script type="text/javascript">
+    // 取得音樂元素
+    const audio = document.getElementById('myAudio');
+    // 取得大圖片元素
+    const picture = document.getElementById('picture'); 
+    // 公主圖片元素 'princessImg' 不再需要取得，因為它沒有功能了。
+
+    // 追蹤音樂播放狀態
+    let isPlaying = false; 
+
+    // 定義點擊時執行的函式
+    function togglePlay() {
+      if (isPlaying) {
+        // 如果正在播放，則暫停
+        audio.pause();
+        isPlaying = false;
+        console.log("音樂已暫停 (點擊大圖)");
+      } else {
+        // 如果已暫停或未播放，則播放
+        audio.play();
+        isPlaying = true;
+        console.log("音樂開始播放 (點擊大圖)");
+      }
+    }
+
+    // 將事件監聽器綁定到大圖片 'picture' 上
+    picture.addEventListener('click', togglePlay); 
+
+    // [已移除] 
+    // princessImg.addEventListener('click', togglePlay); 
+
+    // [可選] 如果音樂播完，重設 isPlaying 狀態
+    audio.addEventListener('ended', () => {
+        isPlaying = false;
+        console.log("音樂播放完畢");
+    });
+  </script>
+</body>
+</html>
