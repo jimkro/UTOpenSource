@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 電子繪本</title>
+    <style>
+        /* ---------------------------------------------------- */
+        /* 整體版面樣式：黑底、置中 */
+        /* ---------------------------------------------------- */
+        body {
+            background: black;
+            color: white;
+            text-align: center; 
+        }
+        
+        /* 讓內容區塊置中並限制寬度 */
+        div#content {
+            width: 800px; 
+            margin: auto; 
+        }
+        
+        h1, h3 {
+            text-align: center;
+        }
+
+        /* ---------------------------------------------------- */
+        /* 箭頭和圖片的樣式 */
+        /* ---------------------------------------------------- */
+        /* 左箭頭圖片 */
+        #leftArrow {
+            cursor: pointer; 
+        }
+        /* 播放/公主圖片 (使用 read.jpg) */
+        #playButton {
+            cursor: pointer; 
+        }
+        /* 右箭頭圖片 */
+        #rightArrow {
+            cursor: pointer; 
+        }
+        
+        .hidden {
+            visibility: hidden; /* 隱藏但保留佔位空間 */
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>有聲書繪本</h1>
+        <h3>目前頁數：0</h3>
+        
+        <img width="650px" id="book" src="./asset/graphics/0.jpg" alt="這裡本來該有故事書的">
+        <br>
+        
+        <img width="200px" id="leftArrow" src="./asset/graphics/left.jpg" alt="上一頁" onclick="left()">
+        
+        <img width="200px" height="77px" id="playButton" src="./asset/graphics/read.jpg" alt="播放/公主" onclick="play()">
+        
+        <img width="200px" id="rightArrow" src="./asset/graphics/right.jpg" alt="下一頁" onclick="right()">
+    </div>
+
+    <audio id="speech" src=""></audio>
+    <audio id="backgroundMusic" src="./asset/music/music0.mp3" loop></audio>
+    
+    <script>
+        const QUIET_VOLUME = 0.1; 
+        const NORMAL_VOLUME = 0.3; 
+        const totalPages = 20;
+
+        // 取得 DOM 元素
+        const pageDisplay = document.querySelector('h3');
+        const bookImage = document.getElementById('book');
+        const speechAudio = document.getElementById('speech');
+        const bgAudio = document.getElementById('backgroundMusic');
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
+        const playButton = document.getElementById('playButton');
+
+        // 狀態變數
+        let page = 0;
+        let userHasInteracted = false; 
+
+        // 監聽旁白音訊結束事件，以便恢復背景音樂音量
+        speechAudio.addEventListener('ended', () => {
+            bgAudio.volume = NORMAL_VOLUME;
+            console.log("旁白結束，背景音樂音量已恢復。");
+        });
+
+        // 根據頁數控制箭頭顯示/隱藏
+        function updateArrows(pageNumber) {
+            if (pageNumber === 0) {
+                leftArrow.classList.add('hidden');
+            } else {
+                leftArrow.classList.remove('hidden');
+            }
+
+            if (pageNumber === totalPages - 1) {
+                rightArrow.classList.add('hidden');
+            } else {
+                rightArrow.classList.remove('hidden');
+            }
+        }
+        
+        // 載入頁面函式
+        function loadPage(pageNumber) {
+            pageDisplay.innerText = `目前頁數：${pageNumber}`;
+            
+            bookImage.src = `./asset/graphics/${pageNumber}.jpg`;
+
+            // 換頁時先把聲音停掉，避免舊頁面的聲音干擾
+            speechAudio.pause();
+            speechAudio.currentTime = 0; 
+            bgAudio.pause();
+            bgAudio.volume = NORMAL_VOLUME; 
+
+            // 設定新的音訊來源
+            speechAudio.src = `./asset/speech/speech${pageNumber}.mp3`;
+            bgAudio.src = `./asset/music/music${pageNumber}.mp3`;
+            bgAudio.volume = NORMAL_VOLUME;
+
+            if (userHasInteracted) {
+                bgAudio.play();
+            }
+            
+            updateArrows(pageNumber);
+        }
+
+        // 左右換頁函式
+        function left() {
+            if (page > 0) {
+                userHasInteracted = true;
+                page--;
+                loadPage(page);
+            }
+        }
+
+        function right() {
+            if (page < totalPages - 1) {
+                userHasInteracted = true;
+                page++;
+                loadPage(page);
+            }
+        }
+
+        // -------------------------------------------------------------------
+        // **[修改重點] 播放/暫停旁白函式：點擊公主/播放按鈕時觸發**
+        // -------------------------------------------------------------------
+        function play() {
+            if (speechAudio.paused) {
+                // 如果是暫停狀態，則播放 (包含從頭播放)
+                
+                // 1. 降低背景音樂音量
+                bgAudio.volume = QUIET_VOLUME;
+                
+                // 2. 播放旁白
+                speechAudio.play();
+
+                // 3. 首次互動檢查
+                if (!userHasInteracted) {
+                    bgAudio.play();
+                    userHasInteracted = true;
+                }
+                
+                console.log("旁白開始/繼續播放。");
+
+            } else {
+                // 如果是播放狀態，則暫停
+                speechAudio.pause();
+                
+                // 暫停朗讀時，恢復背景音樂音量
+                bgAudio.volume = NORMAL_VOLUME; 
+                
+                console.log("旁白已暫停，背景音樂音量已恢復。");
+            }
+        }
+        
+        // 初始載入頁面
+        loadPage(page);
+    </script>
+</body>
+</html>
