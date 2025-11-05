@@ -5,12 +5,12 @@ public class PC {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
         while (T-->0) {
-            double x = sc.nextDouble();
-            double v = sc.nextDouble();
-            double a = sc.nextDouble();
-            double t = sc.nextDouble();
+            long x = sc.nextLong();
+            long v = sc.nextLong();
+            long a = sc.nextLong();
+            long t = sc.nextLong();
 
-            System.out.println((int)(v*t+0.5*a*t*t + x));
+            System.out.println((v*t+a*t*t/2) + x);
         }
         sc.close();
     }
