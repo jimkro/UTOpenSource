@@ -43,8 +43,7 @@ int main() {
         //     cout << i << " -> " << encode[i] << endl;
         // }
 
-        int cases;
-        cin >> cases;
+        int cases; cin >> cases;
 
         
         while(cases--){
