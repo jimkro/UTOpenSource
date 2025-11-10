@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 void buildPostOrder(const string &pre, int preL, int preR,

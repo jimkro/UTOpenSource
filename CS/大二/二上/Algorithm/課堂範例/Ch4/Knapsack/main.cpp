@@ -34,7 +34,6 @@ void dp_1D(){
             dp[w] = max(dp[w], profits[i] + dp[w - weights[i]]);
         }        
     }
-
     cout << "1D DP : " << dp[W] << "\n";
 }
 
