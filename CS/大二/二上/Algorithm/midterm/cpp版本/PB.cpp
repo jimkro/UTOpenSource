@@ -34,7 +34,6 @@ int main(){
             r = max(r,wood[i]);
         }
         for(int i=0;i<p;i++) cin >> width[i];
-
         
         int ans = -1;
         while(l <= r){
