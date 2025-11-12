@@ -8,10 +8,12 @@ long long TSP(const vector<vector<long long>>& w) {
     dp[1][0] = 0; // start at 0, mask with bit0 on
 
     for(int mask = 1; mask < FULL; mask++){
-        for(int u = 0; u < n; u++){
-            if(!(mask & (1 << u)) || dp[mask][u]==INF) continue;
+        for(int u = 0; u < n; u++){ // u : 起點
+            // u 沒有在 set 中或 u 到不了 => 跳過
+            if(!(mask & (1 << u)) || dp[mask][u] == INF) continue;
             
-            for(int v = 0; v < n; v++){
+            for(int v = 0; v < n; v++){ // v : 終點
+                // v 已經拜訪過了 => 跳過
                 if(mask & (1 << v)) continue;
                 dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][u] + w[u][v]);
             }
