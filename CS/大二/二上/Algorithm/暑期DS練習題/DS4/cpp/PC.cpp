@@ -2,14 +2,14 @@
 
 using namespace std;
 
-struct Edge {
-    int to;
+struct Node {
+    int idx;
     int w1;
     int w2;
-    Edge(int to, int w1, int w2) : to(to), w1(w1), w2(w2) {}
+    Node(int idx, int w1, int w2) : idx(idx), w1(w1), w2(w2) {}
 
     // 定義比較運算子(for priority_queue) w1小的優先再w2小的
-    bool operator>(const Edge& other) const {
+    bool operator>(const Node& other) const {
         if (w1 != other.w1) return w1 < other.w1;
         return w2 < other.w2;
     }
@@ -21,7 +21,7 @@ int main() {
 
     while(cin >> N >> E && (N != 0 || E != 0) && cin >> src >> dst){
         
-        vector<vector<Edge>> graph(N+1);
+        vector<vector<Node>> graph(N+1);
         for(int i=0;i<E;i++){
             int v1,v2,w1,w2;
             cin >> v1 >> v2 >> w1 >> w2;
@@ -30,8 +30,8 @@ int main() {
         }
 
         // Dijkstra
-        priority_queue<Edge, vector<Edge>, greater<Edge>> pq;
-        pq.push(Edge(src,0,0));
+        priority_queue<Node, vector<Node>, greater<Node>> pq;
+        pq.push(Node(src,0,0));
 
         vector<pair<int,int>> dist(N+1, {100, 100});
         dist[src] = {0,0};
@@ -39,7 +39,7 @@ int main() {
         while(!pq.empty()){
             auto [u, w1, w2] = pq.top(); pq.pop();
             for(auto& edge : graph[u]){
-                int v = edge.to;
+                int v = edge.idx;
                 int new_w1 = w1 + edge.w1;
                 int new_w2 = w2 + edge.w2;
 
@@ -47,7 +47,7 @@ int main() {
 
                 if(dist[v].first > new_w1 || (dist[v].first == new_w1 && dist[v].second > new_w2)){
                     dist[v] = {new_w1, new_w2};
-                    pq.push(Edge(v, new_w1, new_w2));
+                    pq.push(Node(v, new_w1, new_w2));
                 }
             }
         }
