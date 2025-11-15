@@ -18,7 +18,7 @@ void dp_2D(){
             if(w >= weights[i-1]) dp[i][w] = max(dp[i-1][w], profits[i-1] + dp[i-1][w - weights[i-1]]);
         }
     }
-    cout << "2D DP : " << dp[n][W] << "\n";
+    cout << dp[n][W] << "\n";
 }
 
 // 技巧款
@@ -34,7 +34,34 @@ void dp_1D(){
             dp[w] = max(dp[w], profits[i] + dp[w - weights[i]]);
         }        
     }
-    cout << "1D DP : " << dp[W] << "\n";
+    cout << dp[W] << "\n";
+}
+
+// 技巧款
+/*
+    躲著大的 N 跟 W 改用 N 和 maxProfit 解
+    Time Complexity : O(n * maxProfit)
+    Space Complexity : O(max(n, maxProfit))
+*/
+void dp_profit(){
+    long long upper = accumulate(profits.begin(), profits.end(), 0L);
+    vector<long long> dp(upper+1, 1e18);
+    dp[0] = 0;
+    for(int i = 0; i < n; i++){
+        for(long long j = upper; j>=profits[i]; --j){
+            dp[j] = min(dp[j], dp[j - profits[i]] + weights[i]);
+        }
+    }
+
+    long long res = 0;
+    for(long long i = upper; i>=0; --i){
+        if(dp[i] <= W){
+            res = i;
+            break;
+        }
+    }
+
+    cout << res << "\n";
 }
 
 // === Ch5 Brute Force ===
@@ -55,7 +82,7 @@ void dfs(int i, int total_w, int total_p){
 void brute_force(){
     maxProfit = 0;
     dfs(0, 0, 0);
-    cout << "Brute Force : " << maxProfit << "\n";
+    cout << maxProfit << "\n";
 }
 
 // === Ch6 Branch and Bound === 
@@ -167,7 +194,7 @@ void branch_and_bound() {
     }
 
     // 輸出
-    cout << "B&B : " << maxProfit << "\n";
+    cout << maxProfit << "\n";
 }
 
 int main(){
@@ -175,10 +202,12 @@ int main(){
     while(cin >> n >> W){
         weights.assign(n, 0);
         profits.assign(n, 0);
-        for(int i=0;i<n;i++) cin >> profits[i];
-        for(int i=0;i<n;i++) cin >> weights[i];
-        // dp_2D();
+        for(int i=0;i<n;i++){
+            cin >> weights[i] >> profits[i];
+        }  
         // dp_1D();
+        // dp_2D();
+        dp_profit();
         // brute_force();
         // branch_and_bound();
     }
