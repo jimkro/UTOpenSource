@@ -37,7 +37,8 @@ int main() {
         dist[src] = {0,0};
 
         while(!pq.empty()){
-            auto [u, w1, w2] = pq.top(); pq.pop();
+            auto nono = pq.top(); pq.pop();
+            int u = nono.idx, w1 = nono.w1, w2 = nono.w2;
             for(auto& edge : graph[u]){
                 int v = edge.idx;
                 int new_w1 = w1 + edge.w1;
