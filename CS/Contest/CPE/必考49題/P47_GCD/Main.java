@@ -1,5 +1,3 @@
-package 一星題.必考49題.P47_GCD;
-
 import java.util.Scanner;
 
 public class Main {
@@ -16,7 +14,6 @@ public class Main {
             int G=0;
             
             for(int i=1;i<N;i++){
-
                 for(int j=i+1;j<=N;j++){
                     G+=gcd(i,j);
                 }
@@ -25,12 +22,6 @@ public class Main {
         
         }
     }
-
-
-
-
-
-
 
     //gcd
     private static int gcd(int a, int b) {
