@@ -1,4 +1,3 @@
-package 鍾沅謀version;
 import java.util.*;
 public class P38_2The9s{
 	public static void main(String[] args){

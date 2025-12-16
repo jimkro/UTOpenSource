@@ -1,11 +1,12 @@
+package Contest.CPE.一星題.必考49題.P29_CommonPermutation;
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         while(sc.hasNextLine()){
-            char[] arr1 = sc.nextLine().toCharArray();
-            char[] arr2 = sc.nextLine().toCharArray();
+            char[] arr1 = sc.next().toCharArray();
+            char[] arr2 = sc.next().toCharArray();
             // 排序後比較方便查
             Arrays.sort(arr1);
             Arrays.sort(arr2);

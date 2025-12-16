@@ -1,5 +1,6 @@
+package 一星題.必考49題.P27_SimplyEmirp;
 import java.util.*;
-public class Main {
+public class main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()){

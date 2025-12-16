@@ -1,4 +1,4 @@
-// å·æŠ„ä¸€ä¸‹ï¼Œæ”¹JAVAç‰ˆè€Œå·²
+// °½§Û¤@¤U¡A§ïJAVAª©¦Ó¤w
 import java.util.Scanner;
 
 public class Main {
@@ -10,21 +10,21 @@ public class Main {
             double a = sc.nextDouble();
             String d = sc.next();
 
-            // åŠ ä¸Šåœ°çƒåŠå¾‘
+            // ¥[¤W¦a²y¥b®|
             s += 6440.0;
 
-            // åˆ†é˜è½‰åº¦æ•¸
+            // ¤ÀÄÁÂà«×¼Æ
             if (d.equals("min")) {
                 a /= 60;
             }
 
-            // æ›åŒä½è§’
+            // ´«¦P¦ì¨¤
             a %= 360;
 
-            // æ›æˆ 180 åº¦å…§
+            // ´«¦¨ 180 «×¤º
             a = Math.min(Math.abs(360-a),a);
 
-            // è¨­å®šè¼¸å‡ºæ ¼å¼
+            // ³]©w¿é¥X®æ¦¡
             double arc = s * a * Math.PI / 180;
             double chord = s * Math.sin(a / 2 * Math.PI / 180) * 2;
             System.out.printf("%.6f %.6f%n",arc,chord);
