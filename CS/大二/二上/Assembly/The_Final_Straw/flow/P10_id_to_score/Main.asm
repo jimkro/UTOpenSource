@@ -7,8 +7,8 @@
 ; (5) 列出總共有幾個人及格(60up)
 ; (6) 列出最高分及最低分學生和分數
 
-; 學號會重複 救命
-; 副程式可改成  檔名 PROC USES eax ebx ecx edx esi edi,
+; 有兩個 FillArray.asm 分別是學號不重複 與 學號會重複 版本，兩者擇一
+; 副程式皆可改成 檔名 PROC USES eax ebx ecx edx esi edi, 以防多加變數 
 
 INCLUDE Irvine32.inc
  
